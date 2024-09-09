@@ -1,8 +1,13 @@
 spring:
   cloud:
+    function:
+      definition: function #uses only function and ignores the consumer defined
     stream:
       bindings:
         consumer-in-0:
+          destination: input-topic
+          group: some-group
+        function-in-0:
           destination: input-topic
           group: some-group
 
