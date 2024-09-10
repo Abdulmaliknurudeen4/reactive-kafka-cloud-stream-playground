@@ -24,6 +24,8 @@ public class KafkaConsumer {
         };
     }*/
 
+
+
     @Bean
     public Consumer<Flux<String>> consumer(){
         return flux->
