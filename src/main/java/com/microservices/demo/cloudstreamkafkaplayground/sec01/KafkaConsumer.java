@@ -1,9 +1,8 @@
 package com.microservices.demo.cloudstreamkafkaplayground.sec01;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
+import kafka.tools.ConsoleProducer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.stream.binder.reactorkafka.ReceiverOptionsCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
@@ -23,8 +22,6 @@ public class KafkaConsumer {
            return ro.consumerProperty(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "234");
         };
     }*/
-
-
 
     @Bean
     public Consumer<Flux<String>> consumer(){
