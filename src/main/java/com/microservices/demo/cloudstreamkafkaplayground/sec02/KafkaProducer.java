@@ -1,7 +1,10 @@
 package com.microservices.demo.cloudstreamkafkaplayground.sec02;
 
+import kafka.tools.ConsoleProducer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.stream.binder.reactorkafka.SenderOptionsCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import reactor.core.publisher.Flux;
@@ -19,5 +22,11 @@ public class KafkaProducer {
                 .take(10)
                 .map(i -> "msg "+i)
                 .doOnNext(m -> log.info("produced {}", m));
+    }
+
+    @Bean
+    public SenderOptionsCustomizer<Object, Object> customizer(){
+        return  (s, so) -> so.producerProperty(ProducerConfig.ACKS_CONFIG, "all")
+                .producerProperty(ProducerConfig.BATCH_SIZE_CONFIG, "200001");
     }
 }

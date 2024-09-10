@@ -9,9 +9,9 @@ spring:
           group: some-group
         producer-out-0:
           destination: input-topic
-      kafka:
-        bindings:
-          producer-out-0:
-            producer:
-              configuration:
-                "acks": "-1"
+#      kafka:
+#        bindings:
+#          producer-out-0:
+#            producer:
+#              configuration:
+#                "acks": "-1"
