@@ -1,17 +1,3 @@
-#spring:
-#  cloud:
-#    function:
-#      definition: function #uses only function and ignores the consumer defined
-#    stream:
-#      bindings:
-#        consumer-in-0:
-#          destination: input-topic
-#          group: some-group
-#        function-in-0:
-#          destination: input-topic
-#          group: some-group
-#
-#
 spring:
   cloud:
     function:
@@ -24,11 +10,25 @@ spring:
         function-in-0:
           destination: input-topic
           group: some-group
-      kafka:
-        binder:
-#          configuration:
-            #configuration
-#          producer-properties:
-            #producer
-          consumer-properties:
-            "group.instance.id": "123"
+
+
+#spring:
+#  cloud:
+#    function:
+#      definition: function #uses only function and ignores the consumer defined
+#    stream:
+#      bindings:
+#        consumer-in-0:
+#          destination: input-topic
+#          group: some-group
+#        function-in-0:
+#          destination: input-topic
+#          group: some-group
+#      kafka:
+#        binder:
+##          configuration:
+#            #configuration
+##          producer-properties:
+#            #producer
+#          consumer-properties:
+#            "group.instance.id": "123"
