@@ -16,13 +16,13 @@ import java.util.function.Function;
 public class KafkaConsumer {
     private static final Logger log = LoggerFactory.getLogger(KafkaConsumer.class);
 
-    @Bean
+   /* @Bean
     public ReceiverOptionsCustomizer<String, String> customizer(){
         return (s, ro) ->{
             log.info("******************************** {}", s);
            return ro.consumerProperty(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "234");
         };
-    }
+    }*/
 
     @Bean
     public Consumer<Flux<String>> consumer(){
