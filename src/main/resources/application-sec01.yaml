@@ -56,3 +56,7 @@ spring:
             consumer:
               configuration:
                 "group.instance.id": "789"
+        binder:
+          configuration:
+            consumer-properties:
+              "auto.offset.reset": "earliest"
