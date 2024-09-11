@@ -1,6 +1,7 @@
 package com.microservices.demo.cloudstreamkafkaplayground.sec04;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cloud.stream.binder.reactorkafka.SenderOptionsCustomizer;
@@ -28,8 +29,8 @@ public class KafkaProducer {
 
     private Message<String> toMessage(long i){
         return MessageBuilder.withPayload("msg "+i)
-                .setHeader(KafkaHeaders.KEY, ("key-"+i).getBytes())
-                .setHeader("my-dummy-key", ("dummy-value-"+i).getBytes())
+                .setHeader(KafkaHeaders.KEY, ("key-"+i))
+                .setHeader("my-dummy-key", ("dummy-value-"+i))
                 .build();
     }
 }
