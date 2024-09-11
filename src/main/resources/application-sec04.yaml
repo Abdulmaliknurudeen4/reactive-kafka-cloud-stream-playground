@@ -1,7 +1,8 @@
 spring:
   cloud:
     function:
-      definition: producer;consumer;processor #uses producer, consumer, and processor
+#      definition: consumer; #uses producer, consumer, and processor
+      definition: producer;consumer; #uses producer, consumer, and processor
     stream:
       bindings:
         consumer-in-0:
@@ -16,6 +17,7 @@ spring:
           consumer-properties:
             "key.deserializer": org.apache.kafka.common.serialization.StringDeserializer
             "auto.offset.reset": "earliest"
+            "group.instance.id": "1"
 # producer produces something
 # processor consumers it through input topic
 # processor produces
