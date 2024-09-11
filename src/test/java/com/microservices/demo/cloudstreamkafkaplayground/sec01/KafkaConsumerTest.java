@@ -21,7 +21,9 @@ import java.util.function.Supplier;
 @TestPropertySource(properties = {
         "sec=sec01",
         "spring.cloud.function.definition=consumer;testProducer",
-        "spring.cloud.stream.bindings.testProducer-out-0.destination=input-topic"
+        "spring.cloud.stream.bindings.testProducer-out-0.destination=input-topic",
+        "logging.level.root=ERROR",
+        "logging.level.com.microservices.demo.cloudstreamkafkaplayground=INFO"
 })
 @ExtendWith(OutputCaptureExtension.class)
 class KafkaConsumerTest extends AbstractIntegrationTest {
