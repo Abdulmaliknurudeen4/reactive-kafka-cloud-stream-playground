@@ -23,12 +23,12 @@ public class OrderRouter {
 
     private static final Logger log = LoggerFactory.getLogger(OrderRouter.class);
     public static final String DESTINATION_HEADER = "spring.cloud.stream.sendto.destination";
-//    private static final String DIGITAL_DELIVERY_CHANNEL = "digital-delivery-out";
-//    private static final String PHYSICAL_DELIVERY_CHANNEL = "physical-delivery-out";
-    private static final String DIGITAL_DELIVERY_CHANNEL = "digital-topic"; // automatically sends to the topics if it doesn't find the bindings
+    private static final String DIGITAL_DELIVERY_CHANNEL = "digital-delivery-out";
+    private static final String PHYSICAL_DELIVERY_CHANNEL = "physical-delivery-out";
+ /*   private static final String DIGITAL_DELIVERY_CHANNEL = "digital-topic"; // automatically sends to the topics if it doesn't find the bindings
     private static final String PHYSICAL_DELIVERY_CHANNEL = "physical-topic";
 
-
+*/
 
     @Bean
     public Function<Flux<Message<OrderEvent>>, Flux<Message<?>>> processor(){
