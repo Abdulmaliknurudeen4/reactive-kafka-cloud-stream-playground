@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    function:
+      definition: consumer #uses only function and ignores the consumer defined
+    stream:
+      bindings:
+        consumer-in-0:
+          destination: input-topic
+          group: some-group
+      kafka:
+        binder:
+          consumer-properties:
+            "key.deserializer": org.apache.kafka.common.serialization.IntegerDeserializer
+            "value.deserializer": org.apache.kafka.common.serialization.IntegerDeserializer
+            "auto.offset.reset": "earliest"
+            "group.instance.id": "1"
