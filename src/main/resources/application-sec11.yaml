@@ -3,6 +3,9 @@ spring:
     function:
       definition: consumer #uses only function and ignores the consumer defined
     stream:
+      default:
+        producer:
+          useNativeEncoding: true # all producer bindings will use native encoding
       bindings:
         consumer-in-0:
           destination: input-topic
@@ -18,4 +21,4 @@ spring:
             "value.deserializer": org.springframework.kafka.support.serializer.JsonDeserializer
             "auto.offset.reset": "earliest"
             "group.instance.id": "1"
-            "spring.json.trusted.packages": "*"
+            "spring.json.trusted.packages": "com.microservices.demo.cloudstreamkafkaplayground.sec11.dto"
