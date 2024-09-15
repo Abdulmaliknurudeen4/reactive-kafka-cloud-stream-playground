@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.test.context.TestPropertySource;
 import reactor.core.publisher.Flux;
 
@@ -17,7 +18,10 @@ import java.util.function.Supplier;
 @TestPropertySource(properties = {
         "sec=sec11",
         "spring.cloud.function.definition=consumer;cmProducer",
-        "spring.cloud.stream.bindings.cmProducer-out-0.destination=input-topic",})
+        "spring.cloud.stream.bindings.cmProducer-out-0.destination=input-topic",
+        "spring.cloud.stream.bindings.cmProducer-out-0.producer.use-native-encoding=true",
+        "spring.cloud.stream.kafka.bindings.cmProducer-out-0.producer.configuration.value.serializer=org.springframework.kafka.support.serializer.JsonSerializer"
+})
 class EncodingDecodingTest extends AbstractIntegrationTest {
     private static final Logger log = LoggerFactory.getLogger(EncodingDecodingTest.class);
 
